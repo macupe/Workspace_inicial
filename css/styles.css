@@ -139,3 +139,27 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+#form-login{
+  background-image: url("../img/cover_back.png");
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;  
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+
+form input:required {
+  border-width: ;
+
+}
+#form-login:not(wrap-login100){
+}
+.wrap-login100{
+  show
+}
