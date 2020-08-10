@@ -5,9 +5,6 @@
 
     /*==================================================================
     [ dirigimos al index ]*/    
-
-document.addEventListener("DOMContentLoaded", function(e){
-    
     var userForm = document.getElementsById("email").value;
     var passForm = document.getElementsById("email").value;
 
@@ -16,5 +13,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     }else{
         location.href="login.html";
     }
+document.addEventListener("DOMContentLoaded", function(e){
+    
 
-    };
+
+    }
