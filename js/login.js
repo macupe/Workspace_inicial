@@ -5,16 +5,10 @@
 
     /*==================================================================
     [ dirigimos al index ]*/    
-    var userForm = document.getElementsById("email").value;
-    var passForm = document.getElementsById("email").value;
+}
 
-    if(userForm != "" || passForm != ""){
-        location.href="index.html";
-    }else{
-        location.href="login.html";
-    }
-document.addEventListener("DOMContentLoaded", function(e){
+    document.addEventListener("DOMContentLoaded", function(e){
     
 
 
-    }
+    });
