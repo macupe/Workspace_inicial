@@ -135,6 +135,7 @@ iframe {
 }
 
 .wrap-login100 {
+
   width: 350px;
   background: #fff;
   border-radius: 10px;
@@ -155,6 +156,7 @@ iframe {
 
 .login100-form {
   width: 100%;
+  margin-top: 100px;
 }
 
 .login100-form-title {

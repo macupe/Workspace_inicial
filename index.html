@@ -8,11 +8,11 @@
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <!--link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <!-- Bootstrap core CSS -->
+  <-- Bootstrap core CSS -->
   <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
   <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <!--===============================================================================================-->
@@ -31,34 +31,35 @@
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   <!--===============================================================================================-->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!--link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"-->
   <link href="css/styles.css" rel="stylesheet">
+
 </head>
 <body id="body-login">
   <div id="form-login">
         <div class="wrap-login100">
-          <form class="login100-form validate-form" action="primary.html">
-            <span class="login100-form-title p-b-48">
+          <div class="login100-form validate-form" >
+            <!--span class="login100-form-title p-b-48">
               <i class="zmdi zmdi-font"></i>
-            </span>
+            </span-->
   
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-              <input class="input100" type="text" name="email" id="email" required>
+            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c" id="div1">
+              <input class="input100" type="text" name="email" id="email" onclick="hideAlertM()">
               <span class="focus-input100" data-placeholder="Email"></span>
             </div>
   
             <div class="wrap-input100 validate-input" data-validate="Enter password">
-              <span class="btn-show-pass">
+              <span class="btn-show-pass" onclick="showPasss()">
                 <i class="zmdi zmdi-eye"></i>
               </span>
-              <input class="input100" type="password" name="pass" id="pass" required>
+              <input class="input100" type="password" name="pass" id="pass" onclick='hideAlertP()'>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
               <span class="focus-input100" data-placeholder="Password"></span>
             </div>
   
             <div class="container-login100-form-btn">
               <div class="wrap-login100-form-btn">
                 <div class="login100-form-bgbtn"></div>
-                <button class="login100-form-btn" type="submit">
+                <button class="login100-form-btn" type="button" onclick="validarUser()">
                   Iniciar
                 </button>
               </div>
@@ -73,14 +74,15 @@
                 Registraté
               </a>
             </div>
-          </form>
+          </div>
         </div>
 
     <div id="dropDownSelect1"></div>
   </div>
 </body>
+
   <script src="js/init.js"></script>
-  <script src="js/main.js"></script>
+  <!--script src="js/main.js"></script-->
   <script src="js/login.js"></script>
   <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -97,7 +99,9 @@
   <!--===============================================================================================-->
     <script src="vendor/countdowntime/countdowntime.js"></script>
   <!--===============================================================================================-->
-   
-  
+
+  <script>
+ 
+</script>
 </body>
 </html>
