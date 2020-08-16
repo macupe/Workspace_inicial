@@ -163,3 +163,7 @@ form input:required {
 .wrap-login100{
   show
 }
+
+#precio{
+  text-align: right;
+}
