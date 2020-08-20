@@ -38,7 +38,8 @@ function validarUser(){
       inputDiv[1].classList.add('alert-validate');
       return false;
     }
-    location.href='./primary.html';
+    localStorage.setItem('mail', JSON.stringify(mail.value));
+    location.href='./index.html';
   }
     
 function hideAlertM(){
@@ -48,6 +49,10 @@ function hideAlertP(){
   document.getElementsByClassName('wrap-input100 validate-input')[1].classList.remove('alert-validate');
 }
 
+function cerrarSession(){
+  localStorage.removeItem('mail');
+  location.href='./login.html';
+}
     document.addEventListener("DOMContentLoaded", function(e){
     
      

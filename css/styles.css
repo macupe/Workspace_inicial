@@ -167,3 +167,9 @@ form input:required {
 #precio{
   text-align: right;
 }
+
+#session{
+ color: #fff;
+ text-align: right;
+ font-size: small;
+}
