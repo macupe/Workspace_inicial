@@ -39,7 +39,7 @@ function validarUser(){
       return false;
     }
     localStorage.setItem('mail', JSON.stringify(mail.value));
-    location.href='./index.html';
+    location.href='./indeX.html';
   }
     
 function hideAlertM(){
