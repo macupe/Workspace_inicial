@@ -21,7 +21,9 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>       
+        <div id="session"></div>
+      </div>
       </div>
     </nav>
     <main role="main" class="pb-5">
@@ -37,9 +39,9 @@
                             <input type="radio" name="options" autocomplete="off" checked>
                         </label>
                         <label class="btn btn-light" id="sortDesc" >
-                            <input type="radio" name="options" autocomplete="off">
+                            <input type="radio" name="options" autocomplete="off">Z-A
                         </label>
-                        <label class="btn btn-light" id="sortByCount" >
+                        <label class="btn btn-light" id="sortByCount">
                             <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Cant.
                         </label>
                     </div>
@@ -87,5 +89,18 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/categories.js"></script>
+    <script src="js/login.js"></script>
+    <script>
+      var userSession = localStorage.getItem('mail');
+      
+    if(userSession !== '' && userSession !== null){
+      document.getElementById("session").innerHTML = `
+      <p>`+ userSession.replace(/['"]+/g, '') + `</p>
+      <a href="#" onclick="cerrarSession()">Cerrar Sesion</a>`;
+    }else{
+      location.href = './login.html';
+    }
+    </script>
+    
   </body>
 </html>
