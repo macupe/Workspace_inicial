@@ -173,3 +173,19 @@ form input:required {
  text-align: right;
  font-size: small;
 }
+
+#productRel{
+  border: 5px;
+  
+}
+#productRel td{
+  border: 1px; 
+  border-color: black;
+}
+
+#productRel div{
+  margin-right: 25px;
+  border: black;
+  width: 300px;
+  height: 500px;
+}
