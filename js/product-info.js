@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     
                     <td>
                         <div>
-                            <img src=${productsRel.imgSrc} alt="" width="100%"><br>
+                         <img src=${productsRel.imgSrc} alt="" width="100%"><br>
                             <h3>${productsRel.name}</h3><br>
                             <p style="font: small;">
                                 ${productsRel.description}
