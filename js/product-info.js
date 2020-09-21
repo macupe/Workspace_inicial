@@ -1,24 +1,29 @@
 var product = {};
 var comments = {};
-
+/*
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
+    let html = "";
 
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
+        console.log(imageSrc);
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
+        <div class="carousel-item">
+            <img src="${imageSrc}" class="d-block w-100" alt="...">
         </div>
-        `
+        `;
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+        html+=`
+            <li data-target="#carouselExampleIndicators" data-slide-to="${i}" class="active"></li>
+        `;
+
+        document.getElementById("positionSlides").innerHTML = html;
+        document.getElementById("imgsCarusel").innerHTML = htmlContentToAppend;
     }
-}
+} */
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -51,7 +56,43 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
             //Muestro las imagenes en forma de galería
-            showImagesGallery(product.images);
+            let htmlContentToAppend1= "";
+            let html1 = "";
+            let array1 = product.images
+
+            for(let i = 0; i < array1.length; i++){
+                let imageSrc = array1[i];
+                
+                if(i===0){
+                htmlContentToAppend1 += `
+                <div class="carousel-item active" id="imgsProducts">
+                    <img src="${imageSrc}" class="d-block w-100" alt="...">
+                </div>
+                `;
+        
+                html1+=`
+                    <li data-target="#carouselExampleIndicators" data-slide-to="${i}" class="active"></li>
+                `;
+                
+                document.getElementById("imgsCarusel").innerHTML = htmlContentToAppend1;
+                document.getElementById("positionSlides").innerHTML = html1;
+                }else{
+                
+                    htmlContentToAppend1 += `
+                    <div class="carousel-item">
+                        <img src="${imageSrc}" id="imgsProducts" class="d-block w-100" alt="...">
+                    </div>
+                    `;
+            
+                    html1+=`
+                        <li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>
+                    `;
+                    
+                    document.getElementById("imgsCarusel").innerHTML = htmlContentToAppend1;
+                    document.getElementById("positionSlides").innerHTML = html1;
+
+                }
+            }
         }
         
         
@@ -128,6 +169,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     });
 
-
     
 });
+
+
+
+    

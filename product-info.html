@@ -23,8 +23,17 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <div id="session"></div>
+      
+        <!--Menu desblepagble -->
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle userSession" id="session" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+            <a class="dropdown-item" href="#" onclick="cerrarSession();">Cerrar Sesión</a>
+          </div>
+        </div>
+  
     </div>
   </nav>
   <main role="main">
@@ -38,7 +47,24 @@
       <h3 id="productName"></h3>
       <hr class="my-3">
       <dl>
-        
+        <dd>
+          <div class="container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators" id="positionSlides">
+              </ol>
+              <div class="carousel-inner" id="imgsCarusel"> 
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>  
+          </dd>
         <dt>Precio</dt>
         <dd>
           <h2 id="productCostCurrency" style="float: left;" ></h2> <h2 id="productCost" ></h2>
@@ -49,7 +75,7 @@
           <p id="productDescription"></p>
         </dd>
 
-        <dt>categoría</dt>
+        <dt>Categoría</dt>
         <dd>
           <a href="./category-info.html" id="productCategory"></a>
         </dd>
@@ -58,16 +84,8 @@
         <dd>
           <p id="productSoldCount"></p>
         </dd>
-
-
-        <dt>Imágenes ilustrativas</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
-        </dd>
-
+      <hr><br>
         <dt>Productos Relacionados</dt>
-        <hr>
         <dd>
           <table>
           <tr id="productRel">
@@ -75,7 +93,8 @@
         </table>
         </dd> 
       </dl>
-    <br><br><br><br><br>
+    <hr>
+    <tr></tr>
     <h1>Comentarios</h1><br>
       <div id="comments">
       </div>
@@ -100,10 +119,9 @@
         <br>
         <span>Comentarios: </span><br>
         <textarea name="comments" id="comments" cols="20" rows="10" class="form-control"></textarea><br>
-        <button type="button" class="btn btn-success">Enviar</button>
+        <button type="button" class="btn btn-success" id="sendComments">Enviar</button>
       </div>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
-    </div>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -131,9 +149,7 @@
     var userSession = localStorage.getItem('mail');
     
   if(userSession !== '' && userSession !== null){
-    document.getElementById("session").innerHTML = `
-    <p>`+ userSession.replace(/['"]+/g, '') + `</p>
-    <a href="#" onclick="cerrarSession()">Cerrar Sesion</a>`;
+    document.getElementById("session").innerHTML = userSession.replace(/['"]+/g, '');
   }else{
     location.href = './login.html';
   }
@@ -141,4 +157,4 @@
   
 </body>
 
-</html>
+</html>  

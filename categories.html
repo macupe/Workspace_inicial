@@ -22,7 +22,18 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>       
-        <div id="session"></div>
+
+
+        <!--Menu desblepagble -->
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle userSession" id="session" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+            <a class="dropdown-item" href="#" onclick="cerrarSession();">Cerrar Sesión</a>
+          </div>
+        </div>  
+        
       </div>
       </div>
     </nav>
@@ -91,15 +102,13 @@
     <script src="js/categories.js"></script>
     <script src="js/login.js"></script>
     <script>
-      var userSession = localStorage.getItem('mail');
-      
-    if(userSession !== '' && userSession !== null){
-      document.getElementById("session").innerHTML = `
-      <p>`+ userSession.replace(/['"]+/g, '') + `</p>
-      <a href="#" onclick="cerrarSession()">Cerrar Sesion</a>`;
-    }else{
-      location.href = './login.html';
-    }
+        var userSession = localStorage.getItem('mail');
+        
+        if(userSession !== '' && userSession !== null){
+          document.getElementById("session").innerHTML = userSession.replace(/['"]+/g, '');
+        }else{
+          location.href = './login.html';
+        }
     </script>
     
   </body>

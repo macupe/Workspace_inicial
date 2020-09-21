@@ -227,3 +227,16 @@ form input:required {
   #nameComments{
     width: 25%;
   }
+
+
+  /*color menu desplegable*/
+
+  .userSession{
+    background-color: #343a40!important;
+    border-color: none;
+  }
+
+  #imgsProducts{
+     
+    height: 500px;
+  }
