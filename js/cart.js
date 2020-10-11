@@ -118,7 +118,7 @@ function send(){
   }
   var total = subtotal * parseFloat('1.' + envio);
   var priceSend = subtotal * parseFloat('0.' + envio);
-  document.getElementById('total').innerHTML = total.toFixed(2);
+  document.getElementById('total').innerHTML = "USD " + total.toFixed(2);
   document.getElementById('priceSend').innerHTML = priceSend.toFixed(2);
 }
 
