@@ -2,17 +2,21 @@
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="canonical"
+      href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet">
 
-  <style>
+    <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -28,55 +32,169 @@
       }
     }
   </style>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
-</head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet">
+  </head>
 
-<body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-
+  <body>
+    <nav class="site-header sticky-top py-1 bg-dark">
+      <div class="container d-flex flex-column flex-md-row
+        justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
         <!--Menu desblepagble -->
         <div class="dropdown show">
-          <a class="btn btn-secondary dropdown-toggle userSession" id="session" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+          <a class="btn btn-secondary dropdown-toggle userSession" id="session"
+            href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"></a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
+            <a class="dropdown-item" href="cart.html">Ver mi Carrito <span
+                id="carritoCount" class="badge badge-success"></span></a>
             <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-            <a class="dropdown-item" href="#" onclick="cerrarSession();">Cerrar Sesión</a>
+            <a class="dropdown-item" href="#" onclick="cerrarSession();">Cerrar
+              Sesión</a>
           </div>
-        </div>  
-        
+        </div>
+
+      </div>
+    </nav>
+    <div class="container p-5">
+      <div style="text-align: center; background-image:
+        url('./img/cover_back.png')">
+        <h1>Carrito de Compras</h1>
+        <br>
+        <h4>
+          ¡Aquí encontrarás tus productos Seleccionados!
+        </h4>
+      </div>
+      <br><br><br>
+      <div>
+        <hr>
+        <table class="tcarrito">
+          <thead>
+            <th></th>
+            <th>Nombre</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </thead>
+        </table>
+        <hr>
+        <table class="tcarrito">
+          <tbody id="infoProdCarrito">
+            <!--Aca va la info de los productos del carrito-->
+
+          </tbody>
+        </table>
+        <hr>
+        <br>
+        <div id="envio" class="mx-auto">
+          <h2>Tipo de envio</h2>
+          <p>Elegí el tipo de envío que más te convenga!</p>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="typeSend"
+              id="premium" value="15" onclick="send();">
+            <label class="form-check-label" for="premium">
+              Premium / 2 a 5 dias (15%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="typeSend"
+              id="express" value="07" onclick="send();">
+            <label class="form-check-label" for="express">
+              Express / 5 a 8 dias (7%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="typeSend"
+              id="standard" value="05" onclick="send();" checked>
+            <label class="form-check-label" for="standard">
+              Standard / 12 a 15 dias (5%)
+            </label>
+          </div>
+          <br>
+          <br>
+          <div id="totalCompra"></div>
+          <hr>
+                  <!--DIV QUE MUESTRA LA FACTURA -->
+        <style>
+            #fact{
+              border-width: thin;
+              width: auto;
+            }
+            .facth4{
+              float: left;
+              text-align:left;
+              width:50%;
+            }
+
+            .factSpan{
+              float: left;
+              text-align:right;
+              width:50%;
+            }
+
+          
+
+        </style>
+        <div id="fact">
+          <hr>
+          <h4 class="facth4">Subtotal</h2><span class="factSpan" id="priceSub" style="padding-right: 3px;"></span>
+            <br>
+          <hr>
+          <h4 class="facth4">Envio</h2><span class="factSpan" id="priceSend" style="padding-right: 3px;"></span>
+            <br>
+          <hr>
+          <h4 class="facth4">Total</h2><span class="factSpan" id="total" style="align-items: left; padding-right: 3px;"></span>
+            <br>
+          <hr>
+          <hr>
+        </div>
+
+
+          <h2>Direccion de envio</h2>
+          <br>
+          <div class="form-row">
+            <div class="col col-md-4">
+              <label for="Direccion">Direccion</label>
+              <input type="text" class="form-control" id="streetSend"
+                placeholder="Ej: Av. libertador">
+            </div>
+            <div class="col col-md-2">
+              <label for="">Numero</label>
+              <input type="number" class="form-control" id="numAdressSend"
+                placeholder="Ej: 2276">
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-4" style="padding-left: 0%;">
+            <label for="direccion">Esquina</label>
+            <input type="text" class="form-control" id="corner" placeholder="Ej:
+              Sarandi">
+          </div>
+        </div>
+      </div>
     </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/login.js"></script>
-  <script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/login.js"></script>
+    <script>
         var userSession = localStorage.getItem('mail');
         
         if(userSession !== '' && userSession !== null){
@@ -85,7 +203,6 @@
           location.href = './login.html';
         }
   </script>
-  
-</body>
+  </body>
 
 </html>

@@ -214,7 +214,7 @@ form input:required {
   .puntuacion input:checked ~ label {
   color:orange;
   }
-  span{
+  .calification{
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       font-weight: 400;
       color: blue;
@@ -240,3 +240,26 @@ form input:required {
      
     height: 500px;
   }
+
+
+/*Tabla Carrito*/
+
+.imgCart{
+
+  width:100px;
+  height:100px;
+}
+
+.tcarrito td{
+  width: 25%;
+}
+
+.tcarrito th{
+  width: 25%;
+}
+
+#cantidadCarrito{
+
+  width: 20%;
+}
+

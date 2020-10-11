@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             htmlContentToAppend += `    
                 <h4>${comments[i].user}</h4><br>
-                <span>Calificacion: ${calification(rating)}</span>
+                <span class="calification">Calificacion: ${calification(rating)}</span>
                 </div>
                 <p>${comments[i].description}</p><br>
                 <hr>`;
