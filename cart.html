@@ -15,6 +15,7 @@
     <link
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet">
+    
 
     <style>
     .bd-placeholder-img {
@@ -121,41 +122,6 @@
           <br>
           <div id="totalCompra"></div>
           <hr>
-                  <!--DIV QUE MUESTRA LA FACTURA -->
-        <style>
-            #fact{
-              border-width: thin;
-              width: auto;
-            }
-            .facth4{
-              float: left;
-              text-align:left;
-              width:50%;
-            }
-
-            .factSpan{
-              float: left;
-              text-align:right;
-              width:50%;
-            }
-
-          
-
-        </style>
-        <div id="fact">
-          <hr>
-          <h4 class="facth4">Subtotal</h2><span class="factSpan" id="priceSub" style="padding-right: 3px;"></span>
-            <br>
-          <hr>
-          <h4 class="facth4">Envio</h2><span class="factSpan" id="priceSend" style="padding-right: 3px;"></span>
-            <br>
-          <hr>
-          <h4 class="facth4">Total</h2><span class="factSpan" id="total" style="align-items: left; padding-right: 3px;"></span>
-            <br>
-          <hr>
-          <hr>
-        </div>
-
 
           <h2>Direccion de envio</h2>
           <br>
@@ -168,7 +134,7 @@
             <div class="col col-md-2">
               <label for="">Numero</label>
               <input type="number" class="form-control" id="numAdressSend"
-                placeholder="Ej: 2276">
+                placeholder="Ej: 2276" >
             </div>
           </div>
           <br>
@@ -178,7 +144,74 @@
               Sarandi">
           </div>
         </div>
+                          <!--DIV QUE MUESTRA LA FACTURA -->
+
+                          <div id="fact" style="">
+
+                            <table class="table">
+                              <tr>
+                                <td class="col1-fact"><h4 class="facth4 col-md-2" >Subtotal</h4></td>
+                                <td class="col2-fact"><span class="currency">USD</span></td>
+                                <td class="col3_fact"><span class="factSpan" id="priceSub"></span></td>
+                              </tr>
+                              <tr>
+                                <td class="col1-fact"><h4 class="facth4 col-md-2">Envio</h4></span></td>
+                                <td class="col2-fact"><span class="currency">USD</span></td>
+                                <td class="col3-fact"><span class="factSpan" id="priceSend" ></span></td>
+                              </tr>
+                              <tr>
+                                <td class="col1-fact"><h4 class="facth4 col-md-2">Total</h4></td>
+                                <td class="col2-fact"><span class="currency">USD</span></td>
+                                <td class="col3-fact"><b><span class="factSpan" id="total"></span></b></td>
+                              </tr>
+                            </table>
+                          </div>
+                
+      
+    <!--Modal de Pago-->
+
+    <!-- Button trigger modal -->
+<a href="#"><button type="button" class="btn btn-success" style="float: right;"  data-toggle="modal" data-target="#exampleModal" >
+  Metodo de pago</button></a>
+<script>
+
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Seleccione un metodo de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <!-- check tipo de pago -->
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="o1" onclick="pago(1);" checked>
+          <label class="form-check-label" for="inlineRadio1">Tajeta de credito</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="o2" onclick="pago(2);">
+          <label class="form-check-label" for="inlineRadio2">Transferencia bancaria</label>
+        </div>
+
+        <!--div para mostrar la info-->
+        <div id="pagoT"></div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Guardar metodo de pago</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+    </div>
     </div>
     <div id="spinner-wrapper">
       <div class="lds-ring">
@@ -188,7 +221,8 @@
         <div></div>
       </div>
     </div>
-    <script src="js/jquery-3.4.1.min.js"></script>
+<!-- Minified JS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/dropzone.js"></script>
     <script src="js/init.js"></script>

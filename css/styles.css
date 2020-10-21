@@ -263,3 +263,30 @@ form input:required {
   width: 20%;
 }
 
+#fact{
+  border: 1px solid lightgray;
+        height: 20%;
+        width: 80%;
+        padding: 10px;
+        margin: 100px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+}
+
+.col1-fact{
+  width: 80%;
+}
+
+.col2-fact{
+  width: 10%;
+  text-align: left;
+}
+
+.col3-fact{
+ width: 10%;
+ text-align: right;
+}
+
+.table{
+  margin-top: 40px;
+}

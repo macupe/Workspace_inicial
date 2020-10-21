@@ -118,7 +118,48 @@ function send(){
   }
   var total = subtotal * parseFloat('1.' + envio);
   var priceSend = subtotal * parseFloat('0.' + envio);
-  document.getElementById('total').innerHTML = "USD " + total.toFixed(2);
-  document.getElementById('priceSend').innerHTML = priceSend.toFixed(2);
+  document.getElementById('total').innerHTML =  total.toFixed(2);
+  document.getElementById('priceSend').innerHTML =  priceSend.toFixed(2);
+}
+
+function pago(a){
+
+  let modal = document.getElementById("pagoT");
+  let htmlContentToAppend = '';
+
+  if(a==1){
+
+  htmlContentToAppend += `
+  <br>
+  <div class="form-row">
+    <div class="col-7">
+      <input type="number" class="form-control" placeholder="Numero de Tarjeta" required>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control" min="001" max="999" placeholder="CVC" required>
+    </div>
+  </div>
+  <br><br>
+  <div class="form-group">
+      <label >Vencimiento</label>
+      <input type="date" name="bday" max="30-12" 
+              min="2020-10-14" class="form-control" required>
+    </div>
+
+  `
+
+  }else if(a==2){
+
+  htmlContentToAppend += `
+  <br>
+  <input class="form-control" type="number" placeholder="ingrese numero de cuenta" required>
+  ` 
+  }else{
+  alert("Error");
+
+  }
+
+modal.innerHTML = htmlContentToAppend;
+  
 }
 
