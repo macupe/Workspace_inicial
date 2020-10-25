@@ -10,11 +10,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
       product = resultObj.data;
 
       product = product.articles;
+      showProducts();
+    }
+    
+  });
 
-      let htmlContentToAppend = "";
+  
+});
+
+function showProducts(){
+  let htmlContentToAppend = "";
       let sum = 0;
-      //recorro array con productos del carrito
 
+
+      //recorro array con productos del carrito
       for (let i = 0; i < product.length; i++) {
         let productCar = product[i];
         
@@ -61,16 +70,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
       document.getElementById("carritoCount").innerHTML = product.length;
       
       send();
-
-    }
-
     
-  });
-
-
-
-});
-
+}
 
 function calSTotal(e,subtotal,priceunit) {
 
@@ -122,6 +123,8 @@ function send(){
   document.getElementById('priceSend').innerHTML =  priceSend.toFixed(2);
 }
 
+
+//
 function pago(a){
 
   let modal = document.getElementById("pagoT");
@@ -131,19 +134,20 @@ function pago(a){
 
   htmlContentToAppend += `
   <br>
+  
   <div class="form-row">
     <div class="col-7">
-      <input type="number" class="form-control" placeholder="Numero de Tarjeta" required>
+      <input type="number" class="form-control validar" id="creditCar" placeholder="Numero de Tarjeta" required>
     </div>
     <div class="col">
-      <input type="number" class="form-control" min="001" max="999" placeholder="CVC" required>
+      <input type="number" id="cvc" class="form-control validar" min="001" max="999" placeholder="CVC" required>
     </div>
   </div>
   <br><br>
   <div class="form-group">
       <label >Vencimiento</label>
-      <input type="date" name="bday" max="30-12" 
-              min="2020-10-14" class="form-control" required>
+      <input type="date"  id="date" name="bday" max="30-12" 
+              min="2020-10-14" class="form-control validar" required>
     </div>
 
   `
@@ -152,7 +156,7 @@ function pago(a){
 
   htmlContentToAppend += `
   <br>
-  <input class="form-control" type="number" placeholder="ingrese numero de cuenta" required>
+  <input id="numberCuenta" class="form-control validar" type="number" placeholder="ingrese numero de cuenta" required>
   ` 
   }else{
   alert("Error");
@@ -163,3 +167,110 @@ modal.innerHTML = htmlContentToAppend;
   
 }
 
+
+function valido(){
+  var inputs = document.getElementsByClassName("validar");
+  
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].classList.remove('is-invalid');
+    inputs[i].classList.remove('is-valid');
+    
+    if (inputs[i].value === '' || inputs[i].value === 0) {
+      inputs[i].classList.add('is-invalid');
+      
+    }
+    else{
+      inputs[i].classList.add('is-valid');
+    }
+    
+  }
+
+}
+
+
+
+  document.getElementById("pay").addEventListener("click", function(){
+
+  if(document.getElementById('inlineRadio1').checked === true){
+
+    valido();
+    
+    if(creditCar.value !== '' && date.value !== '' && cvc.value !==''){
+
+      var metodoPago = document.getElementById("mPay");
+      document.getElementById("exampleModal").classList.remove('show');
+      $('.modal-backdrop').css({'position': 'relative'});
+      
+      if(document.getElementById('inlineRadio1').checked === true){
+        metodoPago.innerHTML = 'Tarjeta de Credito';
+      }else{
+        metodoPago.innerHTML = 'Seleccione un metodo de Pago';
+      }
+      
+    }
+
+
+  
+  }else if (document.getElementById('inlineRadio2').checked === true) {
+
+    valido();
+
+    var numberCuenta = document.getElementById('numberCuenta'); 
+
+    if (numberCuenta.value !== '') {
+      var metodoPago = document.getElementById("mPay");
+  
+      document.getElementById("exampleModal").classList.remove('show');
+      $('.modal-backdrop').css({'position': 'relative'});
+      if (document.getElementById('inlineRadio2').checked === true) {
+        metodoPago.innerHTML = 'Transferencia Bancaria';
+      }
+    }
+    
+    
+  }else{
+
+    alert("Debes seleccionar un metodo de pago");
+  }
+
+
+
+  });
+
+  document.getElementById("finishPay").addEventListener("click", function(){
+
+    let premium = document.getElementById('premium');
+    let express = document.getElementById('express');
+    let standard = document.getElementById('standard');
+
+    let streetSend = document.getElementById('streetSend');
+    let number = document.getElementById('numAdressSend');
+    let corner = document.getElementById('corner');
+    
+    if( premium.checked !== true && express.checked !== true && standard.checked !== true){
+
+      alert('debes seleccionar un metodo de envio');
+
+    }else{    
+
+
+      if(streetSend.value === '' || streetSend.value === null && number.value === '' || number.value === null && corner.value ==='' || corner.value === null){
+        alert("ingresa tu dirección");
+        valido();
+      }else if(document.getElementById("mPay").innerHTML == "Seleccione un metodo de Pago") {
+        alert('Debes Seleccionar un metodo de pago');
+      }else{
+        alert('has finalizado tu compra de manera exitosa')
+        location.href='./login.html';
+    }
+
+      
+    }
+
+   
+  }); 
+
+
+  document.getElementById("cancel").addEventListener("click", function(){
+    document.getElementById("mPay").innerHTML = "Seleccione un metodo de Pago"
+  });
