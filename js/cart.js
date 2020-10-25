@@ -18,7 +18,25 @@ document.addEventListener("DOMContentLoaded", function (e) {
   
 });
 
+function borrar(e){
+  product.splice(e);
+  showProducts();
+}
+
 function showProducts(){
+ 
+  if(product.length === 0){
+    console.log(product);
+    document.getElementById("contain").innerHTML = `
+    <div style="text-align: center; background-image: url('./img/cover_back.png')">
+      <h1>Carrito de Compras</h1>
+      <br>
+      <h1>
+        ¡El CARRITO ESTA VACIO!
+      </h1>
+    </div>
+    `
+  }else{
   let htmlContentToAppend = "";
       let sum = 0;
 
@@ -55,6 +73,7 @@ function showProducts(){
                     <td><span>${productCar.currency} ${priceUnit}</span></td>
                     <td><input type="number" class="form-control col-md-3" id="${i}" value="${productCar.count}" onchange="calSTotal(${i},${subTotal},${priceUnit}); calTotal(${i});"></td>
                     <td><b>${productCar.currency} <span class="sub" id="span${i}"> ${subTotal}</span></b></td>
+                    <td><button type="button" onclick="borrar(${i})" class="btn btn-info">Eliminar</button></td>
                 </tr>
                 
                 `;
@@ -70,6 +89,7 @@ function showProducts(){
       document.getElementById("carritoCount").innerHTML = product.length;
       
       send();
+    }
     
 }
 
@@ -249,19 +269,39 @@ function valido(){
     
     if( premium.checked !== true && express.checked !== true && standard.checked !== true){
 
-      alert('debes seleccionar un metodo de envio');
-
+      document.getElementById("alert").innerHTML += `  
+      <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Selecciona un Tipo de envio</strong> .
+      </div>
+      `;
     }else{    
 
 
       if(streetSend.value === '' || streetSend.value === null && number.value === '' || number.value === null && corner.value ==='' || corner.value === null){
-        alert("ingresa tu dirección");
         valido();
+        document.getElementById("alert").innerHTML += `  
+          <div class="alert alert-danger alert-dismissible">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Ingresa una direccion de envio.</strong> 
+          </div>
+          `;
+        
       }else if(document.getElementById("mPay").innerHTML == "Seleccione un metodo de Pago") {
-        alert('Debes Seleccionar un metodo de pago');
+        valido();
+        document.getElementById("alert").innerHTML += `  
+        <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Selecciona un metodo de pago para poder finalizar.</strong> 
+        </div>
+        `;
       }else{
-        alert('has finalizado tu compra de manera exitosa')
-        location.href='./login.html';
+        valido();
+        swal("Bien Hecho!", "Tu compra ha finalizado con exito", "success")
+        .then((value) => {
+          location.href='./index.html';
+        });
+        
     }
 
       

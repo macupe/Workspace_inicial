@@ -39,6 +39,9 @@
   </head>
 
   <body id='body'>
+    <div id="alert">
+
+    </div>
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row
         justify-content-between">
@@ -63,7 +66,7 @@
 
       </div>
     </nav>
-    <div class="container p-5">
+    <div class="container p-5" id="contain" >
       <div style="text-align: center; background-image:
         url('./img/cover_back.png')">
         <h1>Carrito de Compras</h1>
@@ -82,6 +85,7 @@
             <th>Costo</th>
             <th>Cantidad</th>
             <th>Subtotal</th>
+            <th></th>
           </thead>
         </table>
         <hr>
@@ -174,6 +178,8 @@
           <!-- Button trigger modal -->
         <a href="#"><button type="button" class="btn btn-info"   data-toggle="modal" data-target="#exampleModal" >
           Metodo de pago</button></a><span id="mPay" style="padding-left: 25px;">Seleccione un metodo de Pago</span>
+        <br><br>
+        <hr>
         <button type="button"  id="finishPay" style="float: right;" class="btn btn-success">Finalizar Compra</button>
       </div>
 <!-- Modal -->
@@ -210,8 +216,7 @@
     </div>
   </div>
 </div>
-<br><br><br><br><br>
-<hr>
+
 
     
     </div>
@@ -226,6 +231,7 @@
     </div>
 <!-- Minified JS library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js "> </script> 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/dropzone.js"></script>
     <script src="js/init.js"></script>
