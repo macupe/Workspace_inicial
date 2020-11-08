@@ -34,34 +34,145 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
 
-        <!--Menu desblepagble -->
-        <div class="dropdown show">
-          <a class="btn btn-secondary dropdown-toggle userSession" id="session" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
-            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-            <a class="dropdown-item" href="#" onclick="cerrarSession();">Cerrar Sesión</a>
-          </div>
-        </div>  
-        
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="btn btn-outline-info" href="index.html">Inicio</a>
+        <a class="btn btn-outline-info" href="categories.html">Categorías</a>
+        <a class="btn btn-outline-info" href="products.html">Productos</a>
+        <a class="btn btn-outline-info" href="sell.html">Vender</a>   
+
+                  <!--Menu desblepagble -->
+                  <div class="dropdown show">
+                    <a class="btn btn-outline-info dropdown-toggle userSession" id="session" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
+                      <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                      <a class="dropdown-item" href="#" onclick="cerrarSession();">Cerrar Sesión</a>
+                    </div>
+                  </div>      
+      </div>
     </div>
+    
   </nav>
+  <style>
+      #header{
+        text-align: center;
+        height: 300px;
+        padding: 20px;
+        padding-bottom: 300px;
+        background-color: #FAFAFA;
+        background-image: url(./img/todo\ a\ un\ click\ de\ distancia.png);
+        margin-bottom: 25px;
+        
+      }
+      #header h3{
+        font-size: 20px;
+      }
+
+      #photo{
+        width: 250px;
+        height: 250px;
+        border-radius:100%;
+        border: black 2px;
+
+        
+      }
+
+      #datos ul{
+        text-align: center;
+        background-color:#FAFAFA;
+        list-style : none;
+      }
+
+      #btnprofile{
+        float: right;
+      }
+  </style>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div style="text-align: center;  background-color: #FAFAFA;">
+      <h1>Mi Perfil</p><h1>
+      <h4>
+        Gestiona y modifica tus datos personales!
+      </h4>
+    </div>
+    <div>
+      <br>
+      <div id="header">
+        <img  id="photo" src="img/foto-perfil.jpg" alt=""><br>
+        <span id="mName" style="font-size: 28px; font: bold; color: ivory;" ></span>
+      </div>
+      <div id="datos">
+        <ul>
+          <li><h4>Edad:</h4><span id="mAge"></span></li>
+          <hr>
+          <li><h4>Mail:</h4><span id="mEmail"></span></li>
+          <hr>
+          <li><h4>Telefono:</h4><span id="mPhone"></span></li>
+          <hr>
+        </ul>
+      </div>
+      <!-- Button trigger modal -->
+      <button  id="btnprofile" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Modificar Datos
+      </button>
+      
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modifica tus Datos!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                      <div class="form-group col-md-5">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control validar" id="firstN" placeholder="Jhon">
+                      </div>
+                      <div class="form-group col-md-5">
+                        <label>Apellido</label>
+                        <input type="text" class="form-control validar" id="lastN" placeholder="Doe">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label>Edad</label>
+                        <input type="number" min="18" class="form-control validar" id="age" placeholder="22">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-5">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="jhon@doe.com">
+                      </div>
+                      <div class="form-group col-md-5">
+                        <label>Telefono</label>
+                        <input type="tel" class="form-control validar" id="phone" pattern="+[0-9]{11}" placeholder="+59892027667">
+                      </div>
+                    </div>
+                  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" id="saveChanges">Guardar Cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+
     </div>
   </div>
+  <br><br><br>
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
@@ -100,5 +211,7 @@
   
 
 </body>
+
+
 
 </html>

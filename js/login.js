@@ -50,7 +50,12 @@ function hideAlertP(){
 }
 
 function cerrarSession(){
-  localStorage.removeItem('mail');
+  localStorage.removeItem('mail'); 
+  localStorage.removeItem('name');
+  localStorage.removeItem('age');
+  localStorage.removeItem('email');
+  localStorage.removeItem('phone');
+
   location.href='./login.html';
 }
     document.addEventListener("DOMContentLoaded", function(e){

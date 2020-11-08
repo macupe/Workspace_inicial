@@ -16,26 +16,32 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-        <!--Menu desblepagble -->
-        <div class="dropdown show">
-          <a class="btn btn-secondary dropdown-toggle userSession" id="session" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
-            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-            <a class="dropdown-item" href="#" onclick="cerrarSession();">Cerrar Sesión</a>
-          </div>
-        </div>  
-        
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="btn btn-outline-info" href="index.html">Inicio</a>
+        <a class="btn btn-outline-info" href="categories.html">Categorías</a>
+        <a class="btn btn-outline-info" href="products.html">Productos</a>
+        <a class="btn btn-outline-info" href="sell.html">Vender</a>   
+
+                  <!--Menu desblepagble -->
+                  <div class="dropdown show">
+                    <a class="btn btn-outline-info dropdown-toggle userSession" id="session" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
+                      <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                      <a class="dropdown-item" href="#" onclick="cerrarSession();">Cerrar Sesión</a>
+                    </div>
+                  </div>      
+      </div>
     </div>
+    
   </nav>
   <main role="main">
     <div class="container mt-5">
